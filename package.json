@@ -1,12 +1,22 @@
 {
   "private": true,
-  "name": "node-encrypt",
+  "name": "cryptorequire",
   "version": "0.0.1",
-  "description": "",
   "author": "Florent Hagard",
   "dependencies": {
     "colors": "latest",
     "prompt": "latest"
   },
-  "scripts" : {}
+  "scripts": {},
+  "main": "decrypt.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florenthagard/cryptorequire.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/florenthagard/cryptorequire/issues"
+  },
+  "homepage": "https://github.com/florenthagard/cryptorequire#readme",
+  "description": ""
 }
