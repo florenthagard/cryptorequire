@@ -7,8 +7,8 @@
     "colors": "latest",
     "prompt": "latest"
   },
-  "scripts": {
-    "install" : "echo cryptorequire install"
+  "bin": {
+    "cryptorequire": "bin/cryptorequire.sh"
   },
   "main": "decrypt.js",
   "repository": {
