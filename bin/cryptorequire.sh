@@ -4,6 +4,7 @@ export_directory=$(dirname $(pwd))"/"$(basename $(pwd))".encrypted"
 cd "$homescript/../node_modules/cryptorequire/"
 clear
 npm install --silent;
+echo $0
 echo $source_directory
 pwd
 #rm -rf $export_directory;
