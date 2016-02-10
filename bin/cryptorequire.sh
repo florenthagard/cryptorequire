@@ -1,7 +1,7 @@
 homescript=$(dirname $0);
 source_directory=$(pwd);
 export_directory=$(dirname $(pwd))"/"$(basename $(pwd))".encrypted"
-cd "$homescript/../"
+cd "$homescript/../node_modules/"
 clear
 npm install --silent
 rm -rf $export_directory;
