@@ -56,9 +56,15 @@ Object.defineProperty(Array.prototype, "padr", {
 })
 
 
-global.__envSecure = function(algo,passwd){
-	this.algo 	= algo   || 'blowfish';
-	this.passwd = passwd || 'test';
+global.__envSecure = function(algorithmes,passwd){
+    var data 		= {};
+    this.setAlgo 	= function(s) { data['algo']   = s; }
+    this.setPasswd 	= function(s) { data['passwd'] = s; }
+    this.getAlgo 	= function()  { return data['algo']; }
+    this.getPasswd	= function()  { return data['passwd']; }
+
+    this.setAlgo(algorithmes || 'test');
+    this.setPasswd(passwd    || 'blowfish');
 }
 
 global.__envSecure.prototype.showCiphersAlgo = function(){
@@ -72,13 +78,13 @@ global.__envSecure.prototype.showCiphersAlgo = function(){
 }
 global.__envSecure.prototype.encrypt = function(buffer){
 	try{
-		var ect = crypto.createCipher(this.algo,this.passwd);
+		var ect = crypto.createCipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([ect.update(buffer),ect.final()]);
 	} catch(e){ this.showCiphersAlgo(); }
 }
 global.__envSecure.prototype.decrypt = function (buffer){
 	try{
-		var dct = crypto.createDecipher(this.algo,this.passwd);
+		var dct = crypto.createDecipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([dct.update(buffer),dct.final()]).toString('utf8');
 	} catch(e){ this.showCiphersAlgo(); }
 }
