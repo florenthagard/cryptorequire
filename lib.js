@@ -65,6 +65,9 @@ global.__envSecure = function(algorithmes,passwd){
 
     this.setAlgo(algorithmes || 'test');
     this.setPasswd(passwd    || 'blowfish');
+
+	this.algo 	= algo   || 'blowfish';
+	this.passwd = passwd || 'test';
 }
 
 global.__envSecure.prototype.showCiphersAlgo = function(){
@@ -78,14 +81,14 @@ global.__envSecure.prototype.showCiphersAlgo = function(){
 }
 global.__envSecure.prototype.encrypt = function(buffer){
 	try{
-		console.log(this.getAlgo(),this.getPasswd(),this);
+		console.log(this.getAlgo() == this.algo,this.getPasswd() == this.passwd);
 		var ect = crypto.createCipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([ect.update(buffer),ect.final()]);
 	} catch(e){ this.showCiphersAlgo(); }
 }
 global.__envSecure.prototype.decrypt = function (buffer){
 	try{
-		console.log(this.getAlgo(),this.getPasswd(),this);
+		console.log(this.getAlgo() == this.algo,this.getPasswd() == this.passwd);
 		var dct = crypto.createDecipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([dct.update(buffer),dct.final()]).toString('utf8');
 	} catch(e){ this.showCiphersAlgo(); }
