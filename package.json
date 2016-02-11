@@ -8,7 +8,8 @@
     "prompt": "latest"
   },
   "bin": {
-    "cryptorequire": "bin/cryptorequire.sh"
+    "cryptorequire-encrypt": "bin/cryptorequire-encrypt.sh",
+    "cryptorequire-decrypt": "bin/cryptorequire-decrypt.sh"
   },
   "main": "decrypt.js",
   "repository": {
