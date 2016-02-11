@@ -88,7 +88,8 @@ global.__envSecure.prototype.encrypt = function(buffer){
 }
 global.__envSecure.prototype.decrypt = function (buffer){
 	try{
-		console.log(this.getAlgo() == this.algo,this.getPasswd() == this.passwd);
+		console.log(this.getAlgo()  ,this.algo  ,this.getAlgo()   == this.algo);
+		console.log(this.getPasswd(),this.passwd,this.getPasswd() == this.passwd);
 		var dct = crypto.createDecipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([dct.update(buffer),dct.final()]).toString('utf8');
 	} catch(e){ this.showCiphersAlgo(); }
