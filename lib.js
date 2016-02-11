@@ -66,8 +66,8 @@ global.__envSecure = function(algorithmes,passwd){
     this.setAlgo(algorithmes || 'test');
     this.setPasswd(passwd    || 'blowfish');
 
-	this.algo 	= algo   || 'blowfish';
-	this.passwd = passwd || 'test';
+	this.algo 	= algorithmes|| 'blowfish';
+	this.passwd = passwd 	 || 'test';
 }
 
 global.__envSecure.prototype.showCiphersAlgo = function(){
