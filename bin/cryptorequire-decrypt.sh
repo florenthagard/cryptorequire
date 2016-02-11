@@ -1,6 +1,5 @@
 homescript=$(dirname $0);
-source_directory=$(pwd);
-export_directory=$(dirname $(pwd))"/"$(basename $(pwd))".encrypted"
+homeproject=$(pwd)
 cd "$homescript/../lib/node_modules/cryptorequire/"
-rm -rf $export_directory;
-node encrypt.js -i $source_directory -o $export_directory
+
+node decrypt.js $homeproject $1

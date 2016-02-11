@@ -7,6 +7,7 @@ prompt.start();
 prompt.get({properties:{algorithme:{},password:{hidden:true}}},function (err,crypt){
 	try{ 
 		global.__envSecure = new __envSecure(crypt.algorithme,crypt.password);
-		__require(file_context+'/'+file_to_run);
+		var decrypted      = __envSecure.decrypt(fs.readFileSync(file_context+'/'+file_to_run));
+		console.log(decrypted.toString());
 	} catch(e){ console.log(e) }
 });
