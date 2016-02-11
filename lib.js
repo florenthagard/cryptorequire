@@ -63,11 +63,8 @@ global.__envSecure = function(algorithmes,passwd){
     this.getAlgo 	= function()  { return data['algo']; }
     this.getPasswd	= function()  { return data['passwd']; }
 
-    this.setAlgo(algorithmes || 'test');
-    this.setPasswd(passwd    || 'blowfish');
-
-	this.algo 	= algorithmes|| 'blowfish';
-	this.passwd = passwd 	 || 'test';
+    this.setAlgo(algorithmes || 'blowfish');
+    this.setPasswd(passwd    || 'test');
 }
 
 global.__envSecure.prototype.showCiphersAlgo = function(){
@@ -88,8 +85,6 @@ global.__envSecure.prototype.encrypt = function(buffer){
 }
 global.__envSecure.prototype.decrypt = function (buffer){
 	try{
-		console.log(this.getAlgo()  ,this.algo  ,this.getAlgo()   == this.algo);
-		console.log(this.getPasswd(),this.passwd,this.getPasswd() == this.passwd);
 		var dct = crypto.createDecipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([dct.update(buffer),dct.final()]).toString('utf8');
 	} catch(e){ this.showCiphersAlgo(); }
