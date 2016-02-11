@@ -78,12 +78,14 @@ global.__envSecure.prototype.showCiphersAlgo = function(){
 }
 global.__envSecure.prototype.encrypt = function(buffer){
 	try{
+		console.log(this.getAlgo(),this.getPasswd());
 		var ect = crypto.createCipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([ect.update(buffer),ect.final()]);
 	} catch(e){ this.showCiphersAlgo(); }
 }
 global.__envSecure.prototype.decrypt = function (buffer){
 	try{
+		console.log(this.getAlgo(),this.getPasswd());
 		var dct = crypto.createDecipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([dct.update(buffer),dct.final()]).toString('utf8');
 	} catch(e){ this.showCiphersAlgo(); }
