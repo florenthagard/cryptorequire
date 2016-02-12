@@ -8,6 +8,11 @@ prompt.get({properties:{algorithme:{},password:{hidden:true}}},function (err,cry
 	try{ 
 		global.__envSecure = new __envSecure(crypt.algorithme,crypt.password);
 		var decrypted      = __envSecure.decrypt(fs.readFileSync(file_context+'/'+file_to_run));
-		eval(decrypted.toString());
+		global.__dirname   = path.dirname(path.normalize(file_context+'/'+file_to_run));
+		global.__filename  = path.basename(path.normalize(file_context+'/'+file_to_run));
+
+		console.log(__dirname,__filename);
+
+		//eval(decrypted.toString());
 	} catch(e){ console.log(e) }
 });
