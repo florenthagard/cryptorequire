@@ -1,6 +1,6 @@
 require('./lib.js');
-
 module.exports = function(){
+	console.log("cryptorequire");
 	var crequire = global.__envSecure;
 		  delete   global.__envSecure;
 
