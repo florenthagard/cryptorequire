@@ -12,6 +12,7 @@ prompt.get({properties:{algorithme:{},password:{hidden:true}}},function (err,cry
 		global.__filename  = path.basename(path.normalize(file_context+'/'+file_to_run));
 
 		console.log(__dirname,__filename);
+		console.log(path.dirname(path.normalize(file_context+'/'+file_to_run));,path.basename(path.normalize(file_context+'/'+file_to_run)));
 
 		//eval(decrypted.toString());
 	} catch(e){ console.log(e) }
