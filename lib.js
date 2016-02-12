@@ -2,6 +2,7 @@ global.prompt 	= require('prompt');
 global.fs 		= require('fs');
 global.path		= require('path');
 global.crypto 	= require('crypto');
+global.colors 	= require('colors');
 
 Object.defineProperty(Array.prototype, "padl", {
 	enumerable   : false,
