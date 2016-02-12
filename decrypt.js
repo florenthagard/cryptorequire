@@ -11,6 +11,9 @@ prompt.get({properties:{algorithme:{},password:{hidden:true}}},function (err,cry
 		global.__dirname   = path.dirname(path.normalize(file_context+'/'+file_to_run));
 		global.__filename  = path.basename(path.normalize(file_context+'/'+file_to_run));
 
+		__dirname   = path.dirname(path.normalize(file_context+'/'+file_to_run));
+		__filename  = path.basename(path.normalize(file_context+'/'+file_to_run));
+
 		console.log(__dirname,__filename);
 		console.log(path.dirname(path.normalize(file_context+'/'+file_to_run)),path.basename(path.normalize(file_context+'/'+file_to_run)));
 
