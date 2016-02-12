@@ -78,7 +78,6 @@ global.__envSecure.prototype.showCiphersAlgo = function(){
 }
 global.__envSecure.prototype.encrypt = function(buffer){
 	try{
-		console.log(this.getAlgo() == this.algo,this.getPasswd() == this.passwd);
 		var ect = crypto.createCipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([ect.update(buffer),ect.final()]);
 	} catch(e){ this.showCiphersAlgo(); }
