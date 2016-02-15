@@ -2,8 +2,9 @@ global.prompt 	= require('prompt');
 global.fs 		= require('fs');
 global.path		= require('path');
 global.crypto 	= require('crypto');
+global.util 	= require('util');
 
-global.__envSecure = function(algorithmes,passwd){
+global.cryptorequire = function(algorithmes,passwd){
     var data 		= {};
     this.setAlgo 	= function(s) { data['algo']   = s; }
     this.setPasswd 	= function(s) { data['passwd'] = s; }
@@ -14,13 +15,13 @@ global.__envSecure = function(algorithmes,passwd){
     this.setPasswd(passwd    || 'test');
 }
 
-global.__envSecure.prototype.encrypt = function(buffer){
+global.cryptorequire.prototype.encrypt = function(buffer){
 	try{
 		var ect = crypto.createCipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([ect.update(buffer),ect.final()]);
 	} catch(e){ console.log(e); }
 }
-global.__envSecure.prototype.decrypt = function (buffer){
+global.cryptorequire.prototype.decrypt = function (buffer){
 	try{
 		var dct = crypto.createDecipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([dct.update(buffer),dct.final()]).toString('utf8');
@@ -43,6 +44,6 @@ global.clone = function(src, dst) {
 		          path.join(dst, childItemName));
 		});
 	} else { 
-		if(!dstStats){ fs.writeFileSync(dst+'e',__envSecure.encrypt(fs.readFileSync(src))); }
+		if(!dstStats){ fs.writeFileSync(dst+'e',cryptorequire.encrypt(fs.readFileSync(src))); }
 	}
 }
