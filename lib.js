@@ -44,6 +44,6 @@ global.clone = function(src, dst) {
 		          path.join(dst, childItemName));
 		});
 	} else { 
-		if(!dstStats){ fs.writeFileSync(dst+'e',cryptorequire.encrypt(fs.readFileSync(src))); }
+		if(!dstStats){ fs.writeFileSync(dst,cryptorequire.encrypt(fs.readFileSync(src))); }
 	}
 }
