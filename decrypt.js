@@ -8,7 +8,7 @@ prompt.get({properties:{algorithme:{},password:{hidden:true}}},function (err,cry
 	try{
 
 		global.__cryptorequire = new cryptorequire(crypt.algorithme,crypt.password);
-		var decrypted      	   = cryptorequire.decrypt(fs.readFileSync(file_context+'/'+file_to_run));
+		var decrypted      	   = __cryptorequire.decrypt(fs.readFileSync(file_context+'/'+file_to_run));
 			__dirname      	   = path.dirname(path.normalize(file_context+'/'+file_to_run));
 			__filename     	   = path.basename(path.normalize(file_context+'/'+file_to_run));
 
