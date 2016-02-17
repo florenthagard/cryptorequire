@@ -1,8 +1,8 @@
-global.prompt 	= require('prompt');
-global.fs 		= require('fs');
-global.path		= require('path');
-global.crypto 	= require('crypto');
-global.util 	= require('util');
+var prompt 	= require('prompt');
+var fs 		= require('fs');
+var path	= require('path');
+var crypt  	= require('crypto');
+var util 	= require('util');
 
 global.cryptorequire = function(algorithmes,passwd){
     var data 		= {};
@@ -17,13 +17,13 @@ global.cryptorequire = function(algorithmes,passwd){
 
 global.cryptorequire.prototype.encrypt = function(buffer){
 	try{
-		var ect = crypto.createCipher(this.getAlgo(),this.getPasswd());
+		var ect = crypt.createCipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([ect.update(buffer),ect.final()]);
 	} catch(e){ console.log(e); }
 }
 global.cryptorequire.prototype.decrypt = function (buffer){
 	try{
-		var dct = crypto.createDecipher(this.getAlgo(),this.getPasswd());
+		var dct = crypt.createDecipher(this.getAlgo(),this.getPasswd());
 		return Buffer.concat([dct.update(buffer),dct.final()]).toString('utf8');
 	} catch(e){ console.log(e); }
 }
