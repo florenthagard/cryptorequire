@@ -1,5 +1,7 @@
 require('./lib.js');
 var prompt 		 = require('prompt');
+var fs 			 = require('fs');
+var path		 = require('path');
 
 var file_context = process.argv[2];
 var file_to_run  = process.argv[3];

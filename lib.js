@@ -1,7 +1,6 @@
 var fs 		= require('fs');
 var path	= require('path');
 var crypt  	= require('crypto');
-var util 	= require('util');
 
 global.cryptorequire = function(algorithmes,passwd){
     var data 		= {};
