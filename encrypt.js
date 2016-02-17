@@ -1,4 +1,5 @@
 require('./lib.js');
+var prompt 	    = require('prompt');
 
 var source_path = process.argv[3];
 var export_path = process.argv[5];

@@ -1,4 +1,3 @@
-var prompt 	= require('prompt');
 var fs 		= require('fs');
 var path	= require('path');
 var crypt  	= require('crypto');
