@@ -41,9 +41,9 @@ global.clone = function(src, dst) {
 		if(!dstStats){ fs.mkdirSync(dst); }
 		fs.readdirSync(src).forEach(function(childItemName) {
 			clone(path.join(src, childItemName),
-		          path.join(dst+"e", childItemName));
+		          path.join(dst, childItemName));
 		});
 	} else { 
-		if(!dstStats){ fs.writeFileSync(dst,cryptorequire.encrypt(fs.readFileSync(src))); }
+		if(!dstStats){ fs.writeFileSync(dst+'e',cryptorequire.encrypt(fs.readFileSync(src))); }
 	}
 }
