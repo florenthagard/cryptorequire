@@ -1,4 +1,8 @@
-require('./lib.js');
+require.extensions['.jse'] = function (module, filename) {
+    module.exports = __cryptorequire.decrypt(fs.readFileSync(filename, 'utf8'));
+};
+
+/*require('./lib.js');
 module.exports = function(src, filename) {
 	var getStat = function(path){
 		try		 { return fs.statSync(path); }
@@ -30,4 +34,4 @@ module.exports = function(src, filename) {
 			return require(src);
 		}
 	}
-}
+}*/
